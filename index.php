@@ -83,11 +83,17 @@
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <div class="image">
-                            <img src="dist/img/alexander.jpg" class="img-circle elevation-2" alt="User Image">
+                            <img src="dist/img/gojo.WEBP" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info ml-1">
-                            <a href="#" class="d-block">Thors</a>
+                            <a href="#" class="d-block">M Haliq</a>
                         </div>
+                    </div>
+                    <div class="icont">
+                        <a href="#" class="sign-out-link" title="Log In / Log Out" data-toggle="modal"
+                            data-target="#modalLoginLogout">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
                     </div>
                 </div>
                 <nav class="mt-2">
@@ -101,9 +107,9 @@
                             </a>
                         </li>
                         <li
-                            class="nav-item <?php echo ($title === 'siswa' || $title === 'siswa_create' || $title === 'siswa_edit') ? 'menu-open' : ''; ?>">
+                            class="nav-item <?php echo ($title === 'siswa' || $title === 'siswa_create') ? 'menu-open' : ''; ?>">
                             <a href="index.php?page=siswa&title=siswa"
-                                class="nav-link <?php if($title === 'siswa' || $title === 'siswa_create' || $title === 'siswa_edit'){ echo 'active'; } ?>">
+                                class="nav-link <?php if($title === 'siswa' || $title === 'siswa_create' ){ echo 'active'; } ?>">
                                 <i class="fas fa-users"></i>
                                 <p>
                                     Siswa
@@ -125,20 +131,13 @@
                                         <p>Create</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="index.php?page=siswa_edit&title=siswa_edit"
-                                        class="nav-link <?php if($title === 'siswa_edit') echo 'active'; ?>">
-                                        <i class="far fa-edit"></i>
-                                        <p>Edit</p>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                         <li
-                            class="nav-item <?php echo ($title === 'pegawai' || $title === 'pegawai_create' || $title === 'pegawai_edit') ? 'menu-open' : ''; ?>">
+                            class="nav-item <?php echo ($title === 'pegawai' || $title === 'pegawai_create' ) ? 'menu-open' : ''; ?>">
                             <a href="index.php?page=pegawai&title=pegawai"
-                                class="nav-link <?php if($title === 'pegawai' || $title === 'pegawai_create' || $title === 'pegawai_edit'){ echo 'active'; } ?>">
-                                <i class="fas fa-users"></i>
+                                class="nav-link <?php if($title === 'pegawai' || $title === 'pegawai_create'){ echo 'active'; } ?>">
+                                <i class="fas fa-user-cog"></i>
                                 <p>Pegawai</p>
                                 <i class="right fas fa-angle-left"></i>
                             </a>
@@ -157,22 +156,51 @@
                                         <p>Create</p>
                                     </a>
                                 </li>
+                            </ul>
+                        </li>
+                        <li
+                            class="nav-item <?php echo ($title === 'buku' || $title === 'buku_create' || $title === 'buku_edit') ? 'menu-open' : ''; ?>">
+                            <a href="index.php?page=buku&title=buku"
+                                class="nav-link <?php if($title === 'buku' || $title === 'buku_create' || $title === 'buku_edit'){ echo 'active'; } ?>">
+                                <i class="fas fa-book-open"></i>
+                                <p>buku</p>
+                                <i class="right fas fa-angle-left"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="index.php?page=pegawai_edit&title=pegawai_edit"
-                                        class="nav-link <?php if($title === 'pegawai_edit') echo 'active'; ?>">
-                                        <i class="far fa-edit"></i>
-                                        <p>Edit</p>
+                                    <a href="index.php?page=buku&title=buku"
+                                        class="nav-link <?php if($title === 'buku') echo 'active'; ?>">
+                                        <i class="fas fa-database"></i>
+                                        <p>Database</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="index.php?page=buku_create&title=buku_create"
+                                        class="nav-link <?php if($title === 'buku_create') echo 'active'; ?>">
+                                        <i class="fas fa-plus"></i>
+                                        <p>Create</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?page=buku&title=buku"
-                                class="nav-link <?php if($title==='buku') echo 'active'; ?>">
-                                <i class="fas fa-book-open"></i>
-                                <p>Buku</p>
+                            <a href="index.php?page=peminjaman&title=peminjaman"
+                                class="nav-link <?php if($title==='peminjaman') echo 'active'; ?>">
+                                <!-- <i class="fas fa-people-carry"></i> 2 orang meminjam -->
+                                <!-- <i class="fas fa-hand-holding"></i> tangan minta -->
+                                <!-- <i class="fas fa-hands"></i> tangan 2 minta -->
+                                <i class="fas fa-boxes"></i> <!-- tree box -->
+                                <p>Peminjaman</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="index.php?page=pengembalian&title=pengembalian"
+                                class="nav-link <?php if($title==='pengembalian') echo 'active'; ?>">
+                                <i class="fas fa-user-check"></i>
+                                <p>Pengembalian</p>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
             </div>
@@ -188,28 +216,49 @@
           if($_GET['page']=='dashboard'){
             include "view/dashboard.php";
           }
-          elseif($_GET['page']=='pegawai'){
-            include "view/pegawai/index.php";
+          elseif($_GET['page']=='siswa_detail'){
+            include "view/siswa/detail.php";
           }
-          elseif($_GET['page'] == 'pegawai_create') {
-            include "view/pegawai/create_pegawai.php";
+          elseif($_GET['page']=='pegawai_detail'){
+            include "view/pegawai/detail.php";
           }
-          elseif($_GET['page']=='pegawai_edit'){
-            include "view/pegawai/edit.php";
+          elseif($_GET['page']=='buku_detail'){
+            include "view/buku/detail.php";
+          }
+          elseif($_GET['page']=='siswa_edit'){
+            include "view/siswa/edit.php";
           }
           elseif($_GET['page']=='siswa'){
             include "view/siswa/index.php";
           }
           elseif($_GET['page'] == 'siswa_create') {
-            include "view/siswa/create_siswa.php";
+            include "view/siswa/create.php";
           }
-          elseif($_GET['page']=='siswa_edit'){
-            include "view/siswa/edit.php";
+          elseif($_GET['page']=='pegawai'){
+            include "view/pegawai/index.php";
+          }
+          elseif($_GET['page'] == 'pegawai_create') {
+            include "view/pegawai/create.php";
+          }
+          elseif($_GET['page']=='pegawai_edit'){
+            include "view/pegawai/edit.php";
+          }
+          elseif($_GET['page']=='buku'){
+            include "view/buku/index.php";
+          }
+          elseif($_GET['page'] == 'buku_create') {
+            include "view/buku/create.php";
+          }
+          elseif($_GET['page']=='buku_edit'){
+            include "view/buku/edit.php";
+          }
+          elseif($_GET['page']=='peminjaman'){
+            include "view/peminjaman.php";
+          }
+          elseif($_GET['page']=='pengembalian'){
+            include "view/pengembalian.php";
           }
 
-          else{
-            include "view/buku.php";
-          }
         } else {
           include "view/dashboard.php";
         }
@@ -221,7 +270,7 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.2.0
             </div>
-            <strong>Copyright &copy; 2024 <a href="https://youtube.com">Ambativasi</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2024 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
         </footer>
     </div>
     <script src="plugins/jquery/jquery.min.js"></script>
