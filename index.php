@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!$_SESSION['status_login']){
+    header("location:view/login.php");
+}
+?>
+<?php
   if(isset($_GET['title'])){
     $title=$_GET['title'];
   }else{
@@ -67,11 +73,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Silakan pilih apakah Anda ingin masuk atau keluar.
+                        Apakah anda yakin ingin logout?
                     </div>
                     <div class="modal-footer">
-                        <a href="view/login.php" class="btn btn-primary">Log In</a> <!-- Link ke halaman login -->
-                        <a href="logout.php" class="btn btn-danger">Log Out</a> <!-- Link untuk log out -->
+
+                        <a href="view/logout.php" class="btn btn-danger">Log Out</a> <!-- Link untuk log out -->
                     </div>
                 </div>
             </div>
@@ -83,10 +89,10 @@
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <div class="image">
-                            <img src="dist/img/gojo.WEBP" class="img-circle elevation-2" alt="User Image">
+                            <img src="dist/img/alexander.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info ml-1">
-                            <a href="#" class="d-block">M Haliq</a>
+                            <a href="#" class="d-block">Thors</a>
                         </div>
                     </div>
                     <div class="icont">
@@ -138,8 +144,9 @@
                             <a href="index.php?page=pegawai&title=pegawai"
                                 class="nav-link <?php if($title === 'pegawai' || $title === 'pegawai_create'){ echo 'active'; } ?>">
                                 <i class="fas fa-user-cog"></i>
-                                <p>Pegawai</p>
-                                <i class="right fas fa-angle-left"></i>
+                                <p>Pegawai
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -163,8 +170,9 @@
                             <a href="index.php?page=buku&title=buku"
                                 class="nav-link <?php if($title === 'buku' || $title === 'buku_create' || $title === 'buku_edit'){ echo 'active'; } ?>">
                                 <i class="fas fa-book-open"></i>
-                                <p>buku</p>
-                                <i class="right fas fa-angle-left"></i>
+                                <p>buku
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -270,7 +278,7 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.2.0
             </div>
-            <strong>Copyright &copy; 2024 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2024 <a href="https://youtube.com">Amtivasi</a>.</strong> All rights reserved.
         </footer>
     </div>
     <script src="plugins/jquery/jquery.min.js"></script>

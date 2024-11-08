@@ -37,7 +37,6 @@
                         $nobuku=1;
                         $sql=mysqli_query($koneksi,"SELECT * FROM buku");
                         while($data=mysqli_fetch_array($sql)){
-
                             echo "
                             <tr>
                             <td>$no</td>

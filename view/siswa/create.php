@@ -55,16 +55,11 @@
             <!-- /.card-body -->
 
             <div class="card-footer text-right">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save"></i> Simpan
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                <button type="reset" class="btn btn-warning">
+                    <ion-icon name="refresh-circle-outline" class="reset-icon"></ion-icon> Reset
                 </button>
-                <a href='index.php?page=siswa_create&title=siswa_create'>
-                    <button type="reset" class="btn btn-warning">
-                        <ion-icon name="refresh-circle-outline" class="reset-icon"></ion-icon> Reset
-                    </button>
-                </a>
             </div>
-
         </form>
     </div>
 </body>
